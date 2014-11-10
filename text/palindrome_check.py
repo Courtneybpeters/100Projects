@@ -1,5 +1,9 @@
 #!/usr/bin/python
 
+#This program checks words to determine whether or not it is a palindrome.
+#With this program I learned to import one of my previous programs to use for this one. 
+
+
 #This imports one function from stringreverse.py and then the "as .." gives you ability to rename the function within your current program. 
 from string_reverse import string_reverse as sr
 
