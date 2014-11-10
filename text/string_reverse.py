@@ -1,15 +1,14 @@
-def string_reverse():
+def string_reverse(phrase):
 
-	user_string = raw_input("The phrase you would like reversed: ")
 	reversed_string = ""
 
-	for char in range(len(user_string) - 1, -1, -1):
-		reversed_string += user_string[char]
-		return reversed_string
-		
+	for char in range(len(phrase) - 1, -1, -1):
+		reversed_string += phrase[char]	
 
-	print "Result: " + reversed_string
+	return reversed_string
 
 
 if __name__ == "__main__":
-	string_reverse()
+	phrase = raw_input("Phrase you want reversed: ")
+	print string_reverse(phrase)
+	
