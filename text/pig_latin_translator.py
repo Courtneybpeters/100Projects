@@ -4,7 +4,7 @@ import re
 def pig_latin_translator(phrase, vowel_method):
 
 	#Used to check if word begins in a vowel. 
-	vowels = ['a', 'e', 'i', 'o', 'u']
+	vowels = 'aeiouy'
 
 	#Collects all the translated words.
 	translated = []
