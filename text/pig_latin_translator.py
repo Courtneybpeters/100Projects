@@ -3,33 +3,50 @@ import re
 
 def pig_latin_translator(phrase, vowel_method):
 
-	vowels = ['a', 'e', 'i', 'o', 'u']
+	#Used to check if word begins in a vowel. 
+	vowels = 'aeiouy'
 
-	#How will I find a way to capture what punctuation was removed and add it back after phrase is translated?
-	word_list = re.findall(r'\w+', phrase)
-	#DEBUGGING - print word_list
+	#Collects all the translated words.
 	translated = []
 
+	
+
+	#TODO: How will I find a way to capture what punctuation was removed and add it back after phrase is translated?
+	word_list = re.findall(r'\w+', phrase)
+	
 	#Phrase loop - Translates each word separately
 	for word in word_list:
 
-		#Checks to see if word begins in a vowel.
-		if word[0] not in vowels:
-			if word[1] not in vowels:
-				translated.append(word[2:len(word)] + word[:2] + "ay")
-			else:	
-				translated.append(word[1:len(word)] + word[0] + "ay")
-
-		#Multiple methods for handling vowels that start with a vowel. 
+		#If word begins with a vowel, treat differently
 		if word[0] in vowels:
 			if vowel_method == 1:
-				translated.append(word + "way")
+				translated.append(word + "way")				
 			elif vowel_method == 2:
-				translated.append(word[1:len(word)] + word[0] + "way")
+				translated.append(word[1:len(word)] + word[0] + "way")				
 			elif vowel_method == 3:
 				translated.append(word[1:len(word)] + word[0] + "i")
+
+			#If they haven't chosen a valid one, it defaults to the first way.								
 			else:
-				print "Please select an option 1-3."
+				print "You chose an invalid method - therefore it defaulted to the first one."
+				translated.append(word + "way")				
+
+		#Word doesn't begin with a vowel
+		else:
+			#Allows for as many consonants as a word could have.
+			cluster = ''
+			x = 0
+			while x in range(len(word)):
+
+				if word[x] not in vowels:
+					cluster += (word[x])					
+
+				else:
+					break
+
+				x += 1
+					
+			translated.append(word[x:] + cluster + "ay")
 
 	#Joins all the separated words back into a string
 	return_string = ' '.join(translated)
