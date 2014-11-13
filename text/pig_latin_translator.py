@@ -36,14 +36,10 @@ def pig_latin_translator(phrase, vowel_method):
 			#Allows for as many consonants as a word could have.
 			cluster = ''
 			x = 0
-			while x in range(len(word)):
 
-				if word[x] not in vowels:
-					cluster += (word[x])					
-
-				else:
-					break
-
+			#This while loop has two conditionals - keeping track of the counter and if we even need to add to the cluster group.
+			while x < len(word) and word[x] not in vowels:
+				cluster += (word[x])
 				x += 1
 					
 			translated.append(word[x:] + cluster + "ay")
