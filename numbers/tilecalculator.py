@@ -7,6 +7,8 @@ price = float(raw_input("Please enter the cost of the material/square foot: "))
 width = float(raw_input("Width of the room: "))
 height = float(raw_input("Length of the room: "))
 
-cost =(width * height) * price
+area = width * height
+
+cost = area * price
 
 print "The cost to floor this room would be: $%r" % round(cost, 2)
